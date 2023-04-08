@@ -4,8 +4,8 @@ import dashboard from '../pages/master/dashboard'
 import login from '../pages/login'
 import register from '../pages/master/register'
 import home from '../pages/home'
-import medicalRecord from '../pages/medical_record/medicalRecord'
-import addMedicalRecord from '../pages/medical_record/addMedicalRecord'
+import trash from '../pages/trash/trash'
+import addTrash from '../pages/trash/addTrash'
 import medicine from '../pages/medicine/medicine'
 import addMedicine from '../pages/medicine/addMedicine'
 import patientData from '../pages/patient/patientData'
@@ -30,14 +30,14 @@ import report from '../pages/report/report'
           component:home
         },
         {
-          name: 'Medical Record',
-          path: '/medical-record',
-          component:medicalRecord
+          name: 'Trash',
+          path: '/trash',
+          component:trash
         },
         {
-          name: 'Add Medical Record',
-          path: '/medical-record/add',
-          component:addMedicalRecord
+          name: 'Add Trash',
+          path: '/trash/add',
+          component:addTrash
         },
         {
           name: 'Medicine',

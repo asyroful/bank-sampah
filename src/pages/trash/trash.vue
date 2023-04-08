@@ -2,9 +2,9 @@
   <div>
     <div class="bg-white rounded-xl p-6">
       <div class="flex justify-between mb-6">
-        <h3 class="text-2xl font-medium text-left py-2">Rekam Medis</h3>
-        <router-link to="/medical-record/add">
-          <button type="button" class="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><span class="pr-2">+</span>Tambah Rekam Medis</button>
+        <h3 class="text-2xl font-medium text-left py-2">Data Sampah</h3>
+        <router-link to="/trash/add">
+          <button type="button" class="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><span class="pr-2">+</span>Tambah Sampah</button>
         </router-link>
       </div>
       <div>
@@ -29,37 +29,19 @@
                       </th>
                       <th scope="col" class="px-3 py-3">
                           <div class="flex items-center">
-                            Tanggal Periksa
+                            Jenis Sampah
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
                           </div>
                       </th>
                       <th scope="col" class="px-3 py-3">
                           <div class="flex items-center">
-                            Nama Pasien
+                            Harga
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
                           </div>
                       </th>
                       <th scope="col" class="px-3 py-3">
                           <div class="flex items-center">
-                            Keluhan
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
-                          </div>
-                      </th>
-                      <th scope="col" class="px-3 py-3">
-                          <div class="flex items-center">
-                            Nama Dokter
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
-                          </div>
-                      </th>
-                      <th scope="col" class="px-3 py-3">
-                          <div class="flex items-center">
-                            Diagnosa
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
-                          </div>
-                      </th>
-                      <th scope="col" class="px-3 py-3">
-                          <div class="flex items-center">
-                            Obat
+                            Satuan
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
                           </div>
                       </th>
@@ -70,27 +52,18 @@
               </thead>
               <tbody>
                 
-                  <tr v-for="(patient, index ) in filteredPatient" :key="patient.id" class="bg-white border-b text-gray-900 dark:bg-gray-800 dark:border-gray-700">
+                  <tr v-for="(trash, index ) in filteredTrash" :key="trash.id" class="bg-white border-b text-gray-900 dark:bg-gray-800 dark:border-gray-700">
                       <td scope="row" class="px-3 py-4 dark:text-white">
                         {{ index+1 }}
                       </td>
-                      <td class="px-3 py-4">
-                        {{ patient.created_at }}
-                      </td>
                       <td scope="row" class="px-3 py-4 dark:text-white">
-                        {{ patient.name }}
+                        {{ trash.name }}
                       </td>
                       <td class="px-3 py-4">
-                        {{ patient.complaint }}
+                        {{ trash.price }}
                       </td>
                       <td class="px-3 py-4">
-                          dr. lorem
-                      </td>
-                      <td class="px-3 py-4">
-                        {{ patient.diagnose }}
-                      </td>
-                      <td class="px-3 py-4">
-                          lorem ipsum
+                        {{ trash.weightUnit }}
                       </td>
                       <td class="px-3 py-4">
                         <div class="flex gap-1">
@@ -102,7 +75,7 @@
                               <path d="M5.96875 13.4688L2.53125 10.0312" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                           </div>
-                          <div @click="deletePatient(patient.id)" class="p-1 rounded bg-red-600 cursor-pointer">
+                          <div @click="deleteTrash(trash.id)" class="p-1 rounded bg-red-600 cursor-pointer">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M13.5 3.5H2.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
                               <path d="M6.5 6.5V10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
@@ -128,24 +101,24 @@ export default {
   data() {
     return {
       search: '',
-      patients: [
-        { id: 1, name: 'Asyroful', created_at: '01/02/23', complaint: 'Demam', diagnose: 'Masuk Angin'  },
-        { id: 2, name: 'Boy', created_at: '01/02/23', complaint: 'Batuk', diagnose: 'Masuk Angin'  },
-        { id: 3, name: 'Albert', created_at: '02/02/23', complaint: 'Pilek', diagnose: 'Masuk Angin'  },
-        { id: 4, name: 'Vyn', created_at: '03/02/23', complaint: 'Panas Dalam', diagnose: 'Masuk Angin'  },
+      Trashs: [
+        { id: 1, name: 'Plastik', price: 1500, weightUnit: 'Kilogram (Kg)'  },
+        { id: 2, name: 'Kaleng', price: 2000, weightUnit: 'Kilogram (Kg)'  },
+        { id: 3, name: 'Kertas', price: 1000, weightUnit: 'Kilogram (Kg)'  },
+        { id: 4, name: 'Duplax', price: 1800, weightUnit: 'Kilogram (Kg)'  },
       ]
     }
   },
   methods: {
-    deletePatient(id){
-      let deletePatientList = this.patients.filter((e) => e.id != id);
-      this.patients = deletePatientList;
+    deleteTrash(id){
+      let deleteTrashList = this.Trashs.filter((e) => e.id != id);
+      this.Trashs = deleteTrashList;
     }
   },
   computed : {
-    filteredPatient: function() {
-      return this.patients.filter(patient => 
-        patient.name.toLowerCase().includes(this.search.toLowerCase())
+    filteredTrash: function() {
+      return this.Trashs.filter(trash => 
+        trash.name.toLowerCase().includes(this.search.toLowerCase())
       );
     }
   }
