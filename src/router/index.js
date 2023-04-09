@@ -6,8 +6,8 @@ import register from '../pages/master/register'
 import home from '../pages/home'
 import trash from '../pages/trash/trash'
 import addTrash from '../pages/trash/addTrash'
-import medicine from '../pages/medicine/medicine'
-import addMedicine from '../pages/medicine/addMedicine'
+import trashTransaction from '../pages/trashTransaction/trashTransaction'
+import addTrashTransaction from '../pages/trashTransaction/addTrashTransaction'
 import patientData from '../pages/patient/patientData'
 import addPatientData from '../pages/patient/addPatientData'
 import doctorData from '../pages/doctor/doctorData'
@@ -40,14 +40,14 @@ import report from '../pages/report/report'
           component:addTrash
         },
         {
-          name: 'Medicine',
-          path: '/medicine',
-          component:medicine
+          name: 'Trash Transaction',
+          path: '/transaction',
+          component:trashTransaction
         },
         {
-          name: 'Add Medicine',
-          path: '/medicine/add',
-          component:addMedicine
+          name: 'Add Trash Transaction',
+          path: '/transaction/add',
+          component:addTrashTransaction
         },
         {
           name: 'Patient Data',

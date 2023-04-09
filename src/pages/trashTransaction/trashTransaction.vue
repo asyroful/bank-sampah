@@ -2,9 +2,9 @@
   <div>
     <div class="bg-white rounded-xl p-6">
       <div class="flex justify-between mb-6">
-        <h3 class="text-2xl font-medium text-left py-2">Resepsi Obat</h3>
-        <router-link to="/medicine/add">
-          <button type="button" class="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><span class="pr-2">+</span>Tambah Rekam Medis</button>
+        <h3 class="text-2xl font-medium text-left py-2">Data Setor Sampah Nasabah</h3>
+        <router-link to="/transaction/add">
+          <button type="button" class="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><span class="pr-2">+</span>Tambah Setor Sampah</button>
         </router-link>
       </div>
       <div>
@@ -24,47 +24,39 @@
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
-                      <th scope="col" class="px-3 py-3">
+                      <th scope="col" class="p-3">
                           Nomor
                       </th>
-                      <th scope="col" class="px-3 py-3">
+                      <th scope="col" class="p-3">
                           <div class="flex items-center">
-                            Nama Obat
+                            Tanggal Transaksi
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
                           </div>
                       </th>
-                      <th scope="col" class="px-3 py-3">
+                      <th scope="col" class="p-3">
                           <div class="flex items-center">
-                            Keterangan
+                            Nama Nasabah
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
                           </div>
                       </th>
-                      <th scope="col" class="px-3 py-3">
-                          <div class="flex items-center">
-                            Stock Barang
-                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
-                          </div>
-                      </th>
-                      <th scope="col" class="px-3 py-3">
+                      <th scope="col" class="p-3">
                         Aksi
                       </th>
                   </tr>
               </thead>
               <tbody>
                 
-                  <tr v-for="(medicine, index ) in filteredMedicine" :key="medicine.id" class="bg-white border-b text-gray-900 dark:bg-gray-800 dark:border-gray-700">
+                  <tr v-for="(transaction, index ) in filteredTransaction" :key="transaction.id" class="bg-white border-b text-gray-900 dark:bg-gray-800 dark:border-gray-700">
                       <td scope="row" class="px-3 py-4 dark:text-white">
                         {{ index+1 }}
                       </td>
                       <td scope="row" class="px-3 py-4 dark:text-white">
-                        {{ medicine.name }}
+                        {{ transaction.date }}
                       </td>
                       <td class="px-3 py-4">
-                        {{ medicine.information }}
+                        {{ transaction.name }}
                       </td>
-                      <td class="px-3 py-4">
-                        {{ medicine.stock }}
-                      </td>
+                      
                       <td class="px-3 py-4">
                         <div class="flex gap-1">
                           <div class="p-1 rounded bg-primary cursor-pointer">
@@ -75,7 +67,7 @@
                               <path d="M5.96875 13.4688L2.53125 10.0312" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                           </div>
-                          <div @click="deleteMedicine(medicine.id)" class="p-1 rounded bg-red-500 cursor-pointer">
+                          <div @click="deleteTransaction(transaction.id)" class="p-1 rounded bg-red-500 cursor-pointer">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M13.5 3.5H2.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
                               <path d="M6.5 6.5V10.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
@@ -101,24 +93,24 @@ export default {
   data() {
     return {
       search: '',
-      medicines: [
-        { id: 1, name: 'Sanmol', information: "Obat Paracetamol", stock: 24  },
-        { id: 2, name: 'Tera-F', information: "Obat Flu", stock: 12  },
-        { id: 3, name: 'Yusimox', information: "Obat Amoxilin", stock: 40  },
-        { id: 4, name: 'Dextim', information: "Obat Pereda nyeri alergi", stock: 32  },
+      transactions: [
+        { id: 1, name: 'Hisyam', date: '27/03/23'  },
+        { id: 2, name: 'Doni', date: '27/03/23'  },
+        { id: 3, name: 'Ammar', date: '27/03/23'  },
+        { id: 4, name: 'Sans', date: '27/03/23'  },
       ],
     }
   },
   methods: {
-    deleteMedicine(id){
-      let deleteMedicineList = this.medicines.filter((e) => e.id != id);
-      this.medicines = deleteMedicineList;
+    deleteTransaction(id){
+      let deleteTransactionList = this.transactions.filter((e) => e.id != id);
+      this.transactions = deleteTransactionList;
     }
   },
   computed : {
-    filteredMedicine: function() {
-      return this.medicines.filter(medicine => 
-        medicine.name.toLowerCase().includes(this.search.toLowerCase())
+    filteredTransaction: function() {
+      return this.transactions.filter(transaction => 
+        transaction.name.toLowerCase().includes(this.search.toLowerCase())
       );
     }
   }
