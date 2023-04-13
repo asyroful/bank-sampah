@@ -2,40 +2,8 @@
   <div>
     <div class="bg-white rounded-xl mt-4 p-6">
       <div class="flex justify-between mb-3">
-        <h3 class="text-2xl font-medium text-left py-2">Laporan Transaksi</h3>
-        <router-link to="">
-          <button type="button" class="text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Unduh Data Transaksi</button>
-        </router-link>
+        <h3 class="text-2xl font-medium text-left py-2">Penarikan Saldo Nasabah</h3>
       </div>
-      <div class="w-1/2">
-        <div class="flex">
-          <div class="mr-10">
-            <label for="birth" class="text-left block mb-2 text-xs font-medium text-gray-900 dark:text-white">Dari Tanggal :</label>
-            <div class="relative bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-              </div>
-              <VueDatePicker></VueDatePicker>
-            </div>
-          </div>
-          <div>
-            <label for="birth" class="text-left block mb-2 text-xs font-medium text-gray-900 dark:text-white">Ke Tanggal : </label>
-            <div class="relative bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-              </div>
-              <VueDatePicker></VueDatePicker>
-            </div>
-          </div>
-        </div>
-        <div class="my-3 grid justify-items-end">
-          <div class="flex gap-2">
-            <button type="reset" class="w-24 text-primary bg-white border-2 border-primary hover:bg-hover hover:text-white focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-1 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Reset</button>
-            <button type="submit" class="w-24 text-white bg-primary hover:bg-hover focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-1 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Filter</button>
-          </div>
-        </div>
-      </div>
-      
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
@@ -87,7 +55,12 @@
                             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M15.4569 4.7975C15.435 4.74813 14.9056 3.57375 13.7287 2.39687C12.1606 0.82875 10.18 0 7.99999 0C5.81999 0 3.83937 0.82875 2.27124 2.39687C1.09437 3.57375 0.562494 4.75 0.543119 4.7975C0.51469 4.86144 0.5 4.93064 0.5 5.00062C0.5 5.0706 0.51469 5.1398 0.543119 5.20375C0.564994 5.25312 1.09437 6.42688 2.27124 7.60375C3.83937 9.17125 5.81999 10 7.99999 10C10.18 10 12.1606 9.17125 13.7287 7.60375C14.9056 6.42688 15.435 5.25312 15.4569 5.20375C15.4853 5.1398 15.5 5.0706 15.5 5.00062C15.5 4.93064 15.4853 4.86144 15.4569 4.7975ZM7.99999 9C6.07624 9 4.39562 8.30062 3.00437 6.92188C2.43352 6.35418 1.94786 5.70685 1.56249 5C1.94776 4.29309 2.43343 3.64574 3.00437 3.07812C4.39562 1.69938 6.07624 1 7.99999 1C9.92374 1 11.6044 1.69938 12.9956 3.07812C13.5676 3.6456 14.0543 4.29295 14.4406 5C13.99 5.84125 12.0269 9 7.99999 9ZM7.99999 2C7.40665 2 6.82663 2.17595 6.33328 2.50559C5.83994 2.83524 5.45542 3.30377 5.22836 3.85195C5.00129 4.40013 4.94188 5.00333 5.05764 5.58527C5.17339 6.16721 5.45912 6.70176 5.87867 7.12132C6.29823 7.54088 6.83278 7.8266 7.41472 7.94236C7.99667 8.05811 8.59987 7.9987 9.14804 7.77164C9.69622 7.54458 10.1648 7.16006 10.4944 6.66671C10.824 6.17336 11 5.59334 11 5C10.9992 4.2046 10.6828 3.44202 10.1204 2.87959C9.55797 2.31716 8.79539 2.00083 7.99999 2ZM7.99999 7C7.60443 7 7.21775 6.8827 6.88885 6.66294C6.55996 6.44318 6.30361 6.13082 6.15224 5.76537C6.00086 5.39991 5.96125 4.99778 6.03842 4.60982C6.11559 4.22186 6.30608 3.86549 6.58578 3.58579C6.86549 3.30608 7.22185 3.1156 7.60981 3.03843C7.99778 2.96126 8.39991 3.00087 8.76536 3.15224C9.13081 3.30362 9.44317 3.55996 9.66293 3.88886C9.8827 4.21776 9.99999 4.60444 9.99999 5C9.99999 5.53043 9.78928 6.03914 9.41421 6.41421C9.03913 6.78929 8.53043 7 7.99999 7Z" fill="white"/>
                             </svg>
-                          </div>  
+                          </div>
+                          <div class="p-2 rounded bg-black">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7 0.5C5.71442 0.5 4.45772 0.881218 3.3888 1.59545C2.31988 2.30968 1.48676 3.32484 0.994786 4.51256C0.502816 5.70028 0.374095 7.00721 0.624899 8.26809C0.875703 9.52896 1.49477 10.6872 2.40381 11.5962C3.31285 12.5052 4.47104 13.1243 5.73192 13.3751C6.99279 13.6259 8.29973 13.4972 9.48744 13.0052C10.6752 12.5132 11.6903 11.6801 12.4046 10.6112C13.1188 9.54229 13.5 8.28558 13.5 7C13.4982 5.27665 12.8128 3.62441 11.5942 2.40582C10.3756 1.18722 8.72335 0.50182 7 0.5ZM7 12.5C5.91221 12.5 4.84884 12.1774 3.94437 11.5731C3.0399 10.9687 2.33495 10.1098 1.91867 9.10476C1.50238 8.09977 1.39347 6.9939 1.60568 5.927C1.8179 4.86011 2.34173 3.8801 3.11092 3.11091C3.8801 2.34172 4.86011 1.8179 5.92701 1.60568C6.9939 1.39346 8.09977 1.50238 9.10476 1.91866C10.1098 2.33494 10.9687 3.03989 11.5731 3.94436C12.1774 4.84883 12.5 5.9122 12.5 7C12.4983 8.45818 11.9184 9.85617 10.8873 10.8873C9.85617 11.9184 8.45819 12.4983 7 12.5ZM8 10C8 10.1326 7.94732 10.2598 7.85356 10.3536C7.75979 10.4473 7.63261 10.5 7.5 10.5C7.23479 10.5 6.98043 10.3946 6.7929 10.2071C6.60536 10.0196 6.5 9.76522 6.5 9.5V7C6.36739 7 6.24022 6.94732 6.14645 6.85355C6.05268 6.75979 6 6.63261 6 6.5C6 6.36739 6.05268 6.24021 6.14645 6.14645C6.24022 6.05268 6.36739 6 6.5 6C6.76522 6 7.01957 6.10536 7.20711 6.29289C7.39465 6.48043 7.5 6.73478 7.5 7V9.5C7.63261 9.5 7.75979 9.55268 7.85356 9.64645C7.94732 9.74021 8 9.86739 8 10ZM6 4.25C6 4.10166 6.04399 3.95666 6.1264 3.83332C6.20881 3.70999 6.32595 3.61386 6.46299 3.55709C6.60003 3.50032 6.75083 3.48547 6.89632 3.51441C7.04181 3.54335 7.17544 3.61478 7.28033 3.71967C7.38522 3.82456 7.45665 3.9582 7.48559 4.10368C7.51453 4.24917 7.49968 4.39997 7.44291 4.53701C7.38615 4.67406 7.29002 4.79119 7.16668 4.8736C7.04334 4.95601 6.89834 5 6.75 5C6.55109 5 6.36032 4.92098 6.21967 4.78033C6.07902 4.63968 6 4.44891 6 4.25Z" fill="white"/>
+                            </svg>
+                          </div>
                         </div>
                       </td>
                   </tr>

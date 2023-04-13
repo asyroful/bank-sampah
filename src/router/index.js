@@ -8,14 +8,11 @@ import trash from '../pages/trash/trash'
 import addTrash from '../pages/trash/addTrash'
 import trashTransaction from '../pages/trashTransaction/trashTransaction'
 import addTrashTransaction from '../pages/trashTransaction/addTrashTransaction'
-import patientData from '../pages/patient/patientData'
-import addPatientData from '../pages/patient/addPatientData'
-import doctorData from '../pages/doctor/doctorData'
-import addDoctorData from '../pages/doctor/addDoctorData'
+import withdrawal from '../pages/withdrawal/withdrawal'
 import adminData from '../pages/admin/adminData'
 import addAdminData from '../pages/admin/addAdminData'
-import pharmacistData from '../pages/pharmacist/pharmacistData'
-import addPharmacistData from '../pages/pharmacist/addPharmacistData'
+import customer from '../pages/customer/customer'
+import addCustomer from '../pages/customer/addCustomer'
 import report from '../pages/report/report'
 
   const routes = [
@@ -50,24 +47,9 @@ import report from '../pages/report/report'
           component:addTrashTransaction
         },
         {
-          name: 'Patient Data',
-          path: '/patient',
-          component:patientData,
-        },
-        {
-          name: 'Add Patient Data',
-          path: '/patient/add',
-          component:addPatientData
-        },
-        {
-          name: 'Doctor Data',
-          path: '/doctor',
-          component:doctorData
-        },
-        {
-          name: 'Add Doctor Data',
-          path: '/doctor/add',
-          component:addDoctorData
+          name: 'Withdrawal',
+          path: '/withdrawal',
+          component:withdrawal,
         },
         {
           name: 'Admin Data',
@@ -80,14 +62,14 @@ import report from '../pages/report/report'
           component:addAdminData
         },
         {
-          name: 'Pharmacist Data',
-          path: '/pharmacist',
-          component:pharmacistData
+          name: 'Customer Data',
+          path: '/customer',
+          component:customer
         },
         {
-          name: 'Add Pharmacist Data',
-          path: '/pharmacist/add',
-          component:addPharmacistData
+          name: 'Add Customer Data',
+          path: '/customer/add',
+          component:addCustomer
         },
         {
           name: 'Report',

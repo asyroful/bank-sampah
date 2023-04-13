@@ -45,7 +45,7 @@
       <div class="flex justify-between items-center">
         <h3 class="text-xl font-medium">Data Nasabah Terakhir</h3>
         <router-link to="/Customer">
-          <button type="button" class="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lihat Semua</button>
+          <button type="button" class="text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lihat Semua</button>
         </router-link>
       </div>
       <div class="mt-5">
@@ -89,7 +89,7 @@
       <div class="flex justify-between items-center">
         <h3 class="text-xl font-medium">Data Sampah Terakhir</h3>
         <router-link to="/trash">
-          <button type="button" class="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lihat Semua</button>
+          <button type="button" class="text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lihat Semua</button>
         </router-link>
       </div>
       <div class="mt-5">
@@ -135,7 +135,7 @@
       <div class="flex justify-between items-center">
         <h3 class="text-xl font-medium">Transaksi Terakhir Nasabah</h3>
         <router-link to="/medical-record">
-          <button type="button" class="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lihat Semua</button>
+          <button type="button" class="text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lihat Semua</button>
         </router-link>
       </div>
       <div class="mt-5">
