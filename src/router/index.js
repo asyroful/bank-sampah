@@ -9,6 +9,8 @@ import addTrash from '../pages/trash/addTrash'
 import trashTransaction from '../pages/trashTransaction/trashTransaction'
 import addTrashTransaction from '../pages/trashTransaction/addTrashTransaction'
 import withdrawal from '../pages/withdrawal/withdrawal'
+import upload from '../pages/withdrawal/upload'
+import inputDate from '../pages/withdrawal/inputDate'
 import adminData from '../pages/admin/adminData'
 import addAdminData from '../pages/admin/addAdminData'
 import customer from '../pages/customer/customer'
@@ -50,6 +52,16 @@ import report from '../pages/report/report'
           name: 'Withdrawal',
           path: '/withdrawal',
           component:withdrawal,
+        },
+        {
+          name: 'Upload',
+          path: '/withdrawal/upload',
+          component:upload,
+        },
+        {
+          name: 'Input Date',
+          path: '/withdrawal/inputDate',
+          component:inputDate,
         },
         {
           name: 'Admin Data',
