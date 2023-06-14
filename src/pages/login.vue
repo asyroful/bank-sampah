@@ -14,14 +14,14 @@
           <p class="m-4 text-center">Selamat Datang di Bank Sampah Digital Ki Ageng Sengguruh Malang!</p>
           <div class="bg-white rounded-lg shadow ">
             <div class="p-6 space-y-4">
-                <form class="space-y-4" @submit.prevent="submit">
+                <form class="space-y-4" @submit.prevent="login">
                     <div>
                         <label for="email" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                        <input v-model="username" type="text" name="username" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
                     </div>
                     <div>
                         <label for="password" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                        <input v-model="password" type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-start">
@@ -50,32 +50,36 @@
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 // import { useRouter } from 'vue-router';
 
 export default {
-  // name: "Login",
-  // setup() {
-  //   const router = useRouter();
-
-  //   const submit = async e => {
-  //     const form = new FormData(e.target);
-  //     const input = Object.fromEntries(form.entries());
-  //     axios.post('login', input)
-  //     .then((response)=>{
-  //       let { token } = response.data.data
-  //       localStorage.setItem("token", token)
-  //     })
-  //     .catch((er)=>{
-  //       console.log( er, 'error')
-  //     })
-  //     await router.push('/home')
-  //   }
-  //   return {
-  //     submit
-  //   }
-  // }
-  
-};
+  data: () => {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    login() {
+      axios.post('login', {
+        username: this.username,
+        password: this.password
+      })
+      .then(response => {
+        const token = response.data.data.token;
+        console.log(response.data, 'cek login');
+        // Simpan token ke penyimpanan lokal, misalnya localStorage
+        localStorage.setItem('token', token);
+        // Alihkan pengguna ke halaman yang diperlukan setelah login
+        this.$router.push('/home');
+      })
+      .catch(error => {
+        console.error(error);
+        // Tampilkan pesan kesalahan atau tindakan yang sesuai
+      });
+    },
+  }
+}
 </script>
 

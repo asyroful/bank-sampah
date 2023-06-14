@@ -130,13 +130,12 @@
   </div>
 </template>
 <script>
-import { onMounted, ref } from 'vue';
 import axios from 'axios';
-import { useRouter } from 'vue-router';
 // import { response } from 'express';
 export default {
   data() {
     return {
+      items: [],
       showDropDown: false,
       showManagementData: false,
       showSide: true
@@ -156,41 +155,53 @@ export default {
     // toggle management data 
     toggleSideDrop() {
       this.showManagementData = !this.showManagementData
+    },
+    getData() {
+      const token = this.token
+      axios.get('me', {headers: { "Authorization": `Bearer ${token}` }})
+        .then(response => {
+          console.log(response)
+          this.items = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   },
-  name: 'dashboard',
-  setup() {
-    const message = ref('');
-    const router = useRouter();
 
-    onMounted(async () => {
-      try {
-        const token = localStorage.getItem("token")
-        axios.get('me', { headers: {"Authorization" : `Bearer ${token}`} })
-        .then((response)=>{
-          console.log(response.data.data)
-        })
-        .catch((er)=>{
-          console.log( er, 'error')
-        })
-        // const {data} = await axios.get('me');
+  name: 'dashboard',
+  // setup() {
+  //   const message = ref('');
+  //   const router = useRouter();
+
+  //   onMounted(async () => {
+  //     try {
+  //       const token = localStorage.getItem("token")
+  //       axios.get('me', { headers: {"Authorization" : `Bearer ${token}`} })
+  //       .then((response)=>{
+  //         console.log(response.data.data)
+  //       })
+  //       .catch((er)=>{
+  //         console.log( er, 'error')
+  //       })
+  //       // const {data} = await axios.get('me');
         
-        // message.value = `Hi ${data.name}`;
-      }catch (e) {
-        router.push('/login')
-      }
-    })
-    const logout = async () => {
-      const token = localStorage.removeItem("token")
-      axios.post('logout', { headers: {"Authorization" : `Bearer ${token}`} });
+  //       // message.value = `Hi ${data.name}`;
+  //     }catch (e) {
+  //       router.push('/login')
+  //     }
+  //   })
+  //   const logout = async () => {
+  //     const token = localStorage.removeItem("token")
+  //     axios.post('logout', { headers: {"Authorization" : `Bearer ${token}`} });
       
-      router.push('/login');
-    }
-    return { 
-      message,
-      logout 
-    };
-  }
+  //     router.push('/login');
+  //   }
+  //   return { 
+  //     message,
+  //     logout 
+  //   };
+  // }
 
 }
 </script>

@@ -9,7 +9,7 @@
         </div>
         <div class="flex flex-col text-left">
           <p class="text-sm">Jumlah Nasabah Terdaftar</p>
-          <h1 class="mt-1 font-bold text-3xl">64</h1>
+          <h1 class="mt-1 font-bold text-3xl">{{ latestCustomers.length }}</h1>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
         </div>
         <div class="flex flex-col text-left">
           <p class="text-sm">Jumlah Pegawai Bank Sampah</p>
-          <h1 class="mt-1 font-bold text-3xl">2</h1>
+          <h1 class="mt-1 font-bold text-3xl">{{ admins.length }}</h1>
         </div>
       </div>
     </div>
@@ -35,13 +35,13 @@
         </div>
         <div class="flex flex-col text-left">
           <p class="text-sm">Jumlah Sampah</p>
-          <h1 class="mt-1 font-bold text-3xl">4</h1>
+          <h1 class="mt-1 font-bold text-3xl">{{ trashes.length }}</h1>
         </div>
       </div>
     </div>
   </div>
   <div class="grid grid-cols-2 mt-5 gap-5"> 
-    <div class="p-6 rounded-xl bg-white h-72">
+    <div class="p-6 rounded-xl bg-white h-80">
       <div class="flex justify-between items-center">
         <h3 class="text-xl font-medium">Data Nasabah Terakhir</h3>
         <router-link to="/Customer">
@@ -49,7 +49,7 @@
         </router-link>
       </div>
       <div class="mt-5">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table class="w-full table-auto text-sm text-left text-gray-500 dark:text-gray-400">
               <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                       <th scope="col" class="px-3 py-3">
@@ -61,7 +61,7 @@
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
                           </div>
                       </th>
-                      <th scope="col" class="px-3 py-3">
+                      <th scope="col" class="px-3 py-3 w-7/12">
                           <div class="flex items-center">
                             Alamat
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
@@ -74,18 +74,22 @@
                       <td scope="row" class="px-3 py-2 dark:text-white">
                         {{ index+1 }}
                       </td>
-                      <td scope="row" class="px-3 py-2 dark:text-white">
+                      <td class="px-3 py-2 dark:text-white">
+                        <div class="text-container overflow-hidden whitespace-nowrap overflow-ellipsis">
                           {{ latestCustomer.name }}
+                        </div>
                       </td>
-                      <td class="px-3 py-2">
+                      <td class="px-3 py-2 w-7/12 overflow-hidden">
+                        <div class="truncate">
                           {{ latestCustomer.address }}
+                        </div>
                       </td>
                   </tr>
               </tbody>
           </table>
       </div>
     </div>
-    <div class="p-6 rounded-xl bg-white h-72">
+    <div class="p-6 rounded-xl bg-white h-80">
       <div class="flex justify-between items-center">
         <h3 class="text-xl font-medium">Data Sampah Terakhir</h3>
         <router-link to="/trash">
@@ -114,7 +118,7 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr v-for="(trash, index ) in trashs" :key="trash.id" class="bg-white border-b text-gray-900 dark:bg-gray-800 dark:border-gray-700">
+                  <tr v-for="(trash, index ) in trashes" :key="trash.id" class="bg-white border-b text-gray-900 dark:bg-gray-800 dark:border-gray-700">
                       <td scope="row" class="px-3 py-2 dark:text-white">
                           {{ index+1 }}
                       </td>
@@ -301,33 +305,51 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
-      latestCustomers: [
-        { name: 'Asyroful', address: 'Sengguruh'  },
-        { name: 'Siti', address: 'Sengguruh'  },
-        { name: 'Sinta', address: 'Sengguruh'  },
-        { name: 'Doni', address: 'Sengguruh'  },
-      ],
-      trashs: [
-        { name: 'Botol', price: 1500  },
-        { name: 'Kertas', price: 2000  },
-        { name: 'Kaleng', price: 2000  },
-        { name: 'Glangsi', price: 1500  },
-      ],
-      customers: [
-        { name: 'Asyroful', created_at: '01/02/23', trash: 'Botol', weight: 3, price: 4500  },
-        { name: 'Asyroful', created_at: '01/02/23', trash: 'Botol', weight: 3, price: 4500  },
-        { name: 'Asyroful', created_at: '01/02/23', trash: 'Botol', weight: 3, price: 4500  },
-        { name: 'Asyroful', created_at: '01/02/23', trash: 'Botol', weight: 3, price: 4500  },
-        
-      ]
+      latestCustomers: [],
+      trashes: [],
+      admins: [],
+      customers: []
     }
+  },
+  async mounted() {
+    const token = localStorage.token
+      axios.get('user?role=nasabah', {headers: { "Authorization": `Bearer ${token}` }})
+        .then(response => {
+          console.log(response)
+          this.latestCustomers = response.data.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      axios.get('garbage', {headers: { "Authorization": `Bearer ${token}` }})
+        .then(response => {
+          console.log(response)
+          this.trashes = response.data.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      axios.get('user?role=admin', {headers: { "Authorization": `Bearer ${token}` }})
+        .then(response => {
+          console.log(response)
+          this.admins = response.data.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
   }
 }
+
 </script>
 
 <style>
-
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 </style>

@@ -6,6 +6,7 @@ import register from '../pages/master/register'
 import home from '../pages/home'
 import trash from '../pages/trash/trash'
 import addTrash from '../pages/trash/addTrash'
+import editTrash from '../pages/trash/editTrash'
 import trashTransaction from '../pages/trashTransaction/trashTransaction'
 import addTrashTransaction from '../pages/trashTransaction/addTrashTransaction'
 import withdrawal from '../pages/withdrawal/withdrawal'
@@ -37,6 +38,11 @@ import report from '../pages/report/report'
           name: 'Add Trash',
           path: '/trash/add',
           component:addTrash
+        },
+        {
+          name: 'Edit Trash',
+          path: '/trash/edit/:id',
+          component:editTrash
         },
         {
           name: 'Trash Transaction',
