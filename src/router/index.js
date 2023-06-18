@@ -14,8 +14,10 @@ import upload from '../pages/withdrawal/upload'
 import inputDate from '../pages/withdrawal/inputDate'
 import adminData from '../pages/admin/adminData'
 import addAdminData from '../pages/admin/addAdminData'
+import editAdminData from '../pages/admin/editAdminData'
 import customer from '../pages/customer/customer'
 import addCustomer from '../pages/customer/addCustomer'
+import editCustomer from '../pages/customer/editCustomer'
 import report from '../pages/report/report'
 
   const routes = [
@@ -61,7 +63,7 @@ import report from '../pages/report/report'
         },
         {
           name: 'Upload',
-          path: '/withdrawal/upload',
+          path: '/withdrawal/upload/:id',
           component:upload,
         },
         {
@@ -80,6 +82,11 @@ import report from '../pages/report/report'
           component:addAdminData
         },
         {
+          name: 'Edit Admin Data',
+          path: '/admin/edit/:id',
+          component:editAdminData
+        },
+        {
           name: 'Customer Data',
           path: '/customer',
           component:customer
@@ -88,6 +95,11 @@ import report from '../pages/report/report'
           name: 'Add Customer Data',
           path: '/customer/add',
           component:addCustomer
+        },
+        {
+          name: 'Edit Customer Data',
+          path: '/customer/edit/:id',
+          component:editCustomer
         },
         {
           name: 'Report',
