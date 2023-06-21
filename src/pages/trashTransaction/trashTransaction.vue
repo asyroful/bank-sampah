@@ -85,7 +85,7 @@
                       </td>
                       <Modal @close="toggleModal" :modalActive="modalActive">
                         <div class="modal-content">
-                          <p>Apakah kamu ingin menghapus data sampah?</p>
+                          <p class="text-center">Apakah kamu ingin menghapus data sampah?</p>
                         </div>
                         <!--Footer-->
                         <div class="flex justify-center pt-2">

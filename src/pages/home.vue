@@ -9,7 +9,7 @@
         </div>
         <div class="flex flex-col text-left">
           <p class="text-sm">Jumlah Nasabah Terdaftar</p>
-          <h1 class="mt-1 font-bold text-3xl">{{ latestCustomers.length }}</h1>
+          <h1 class="mt-1 font-bold text-3xl">{{ totalNasabah }}</h1>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
         </div>
         <div class="flex flex-col text-left">
           <p class="text-sm">Jumlah Pegawai Bank Sampah</p>
-          <h1 class="mt-1 font-bold text-3xl">{{ admins.length }}</h1>
+          <h1 class="mt-1 font-bold text-3xl">{{ totalAdmin }}</h1>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="flex flex-col text-left">
           <p class="text-sm">Jumlah Sampah</p>
-          <h1 class="mt-1 font-bold text-3xl">{{ trashes.length }}</h1>
+          <h1 class="mt-1 font-bold text-3xl">{{ totalSampah }}</h1>
         </div>
       </div>
     </div>
@@ -367,6 +367,9 @@ export default {
       admins: [],
       transactions: [],
       detailItems: [],
+      totalNasabah: 0,
+      totalSampah: 0,
+      totalAdmin: 0,
       popupActive: false,
     }
   },
@@ -377,6 +380,7 @@ export default {
         .then(response => {
           console.log(response)
           this.latestCustomers = response.data.data;
+          this.totalNasabah = response.data.meta.total;
         })
         .catch(error => {
           console.error(error);
@@ -385,6 +389,7 @@ export default {
         .then(response => {
           console.log(response)
           this.trashes = response.data.data;
+          this.totalSampah = response.data.meta.total;
         })
         .catch(error => {
           console.error(error);
@@ -393,6 +398,7 @@ export default {
         .then(response => {
           console.log(response)
           this.admins = response.data.data;
+          this.totalAdmin = response.data.meta.total;
         })
         .catch(error => {
           console.error(error);

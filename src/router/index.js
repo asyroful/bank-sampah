@@ -10,6 +10,8 @@ import editTrash from '../pages/trash/editTrash'
 import trashTransaction from '../pages/trashTransaction/trashTransaction'
 import addTrashTransaction from '../pages/trashTransaction/addTrashTransaction'
 import withdrawal from '../pages/withdrawal/withdrawal'
+import withdraw from '../pages/withdrawal/withdraw'
+import addWithdraw from '../pages/withdrawal/addWithdraw'
 import upload from '../pages/withdrawal/upload'
 import inputDate from '../pages/withdrawal/inputDate'
 import adminData from '../pages/admin/adminData'
@@ -60,6 +62,16 @@ import report from '../pages/report/report'
           name: 'Withdrawal',
           path: '/withdrawal',
           component:withdrawal,
+        },
+        {
+          name: 'Withdraw',
+          path: '/withdraw',
+          component:withdraw,
+        },
+        {
+          name: 'Add Withdraw',
+          path: '/withdraw/add/:id',
+          component:addWithdraw,
         },
         {
           name: 'Upload',
