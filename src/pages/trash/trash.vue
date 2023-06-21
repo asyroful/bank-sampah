@@ -130,6 +130,7 @@ export default {
   data() {
     return {
       search: '',
+      role: '',
       trashes: [],
       currentPage: 1, // Halaman saat ini
       totalPages: 0, // Total halaman
@@ -178,6 +179,14 @@ export default {
         .catch(error => {
           console.error(error);
         });
+      axios.get('me', {headers: { "Authorization": `Bearer ${token}` }})
+        .then(response => {
+          console.log(response)
+          this.role = response.data.data.role; // Asumsikan response.data.role berisi peran pengguna
+        })
+        .catch(error => {
+          console.log(error);
+        });
     },
     deleteItem(id){
       const token = localStorage.token
@@ -220,7 +229,17 @@ export default {
       return this.Trashes.filter(trash => 
         trash.name.toLowerCase().includes(this.search.toLowerCase())
       );
-    }
+    },
+    isAdmin() {
+      return this.role === 'admin'; // Validasi apakah role adalah 'admin'
+    },
+    isSuperadmin() {
+      return this.role === 'superadmin'; // Validasi apakah role adalah 'superadmin'
+    },
+    isNasabah() {
+      return this.role === 'nasabah'; // Validasi apakah role adalah 'pharmacist'
+    },
+    
   }
 }
 </script>

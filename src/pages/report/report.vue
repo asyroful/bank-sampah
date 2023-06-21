@@ -221,14 +221,14 @@ export default {
           console.error(error);
         });
     },
-  fetchItems(){
+  fetchItems() {
     // Buat objek query parameter berdasarkan input pencarian
     const query = {
       nasabah: this.selectedName,
       start: this.formattedStartDate, // Gunakan formattedStartDate sebagai pengganti startDate
       end: this.formattedEndDate // Gunakan formattedEndDate sebagai pengganti endDate
     };
-    const token = localStorage.token
+    const token = localStorage.token;
       axios.get('transaction', {params: query, headers: { "Authorization": `Bearer ${token}` }})
         .then(response => {
           console.log(response)
@@ -239,7 +239,7 @@ export default {
         .catch(error => {
           console.error(error);
         });
-    },
+      },
     openModal(id, date) {
       const token = localStorage.token;
       const url = `/deposit/${id}?date=${date}`;
