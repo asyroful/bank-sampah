@@ -21,6 +21,7 @@ import customer from '../pages/customer/customer'
 import addCustomer from '../pages/customer/addCustomer'
 import editCustomer from '../pages/customer/editCustomer'
 import report from '../pages/report/report'
+import reportMe from '../pages/report/reportMe'
 
   const routes = [
     {
@@ -117,6 +118,11 @@ import report from '../pages/report/report'
           name: 'Report',
           path: '/report',
           component:report
+        },
+        {
+          name: 'Report Me',
+          path: '/reportMe',
+          component:reportMe
         },
       ]
     },

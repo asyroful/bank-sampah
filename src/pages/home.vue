@@ -1,5 +1,20 @@
 <template>
-  <div class="grid grid-cols-3 gap-5"> 
+  <div v-if="isNasabah" class="grid grid-cols-1 gap-5"> 
+    <div class="py-3 px-2 rounded-xl bg-white h-24">
+      <div class="flex flex-row gap-5">
+        <div class="rounded-full bg-surface p-3">
+          <svg width="33" height="35" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30.375 6.75H5.625C5.32663 6.75 5.04048 6.86853 4.82951 7.0795C4.61853 7.29048 4.5 7.57663 4.5 7.875C4.5 8.17337 4.61853 8.45952 4.82951 8.6705C5.04048 8.88147 5.32663 9 5.625 9H6.75V29.25C6.75 29.8467 6.98705 30.419 7.40901 30.841C7.83097 31.2629 8.40326 31.5 9 31.5H27C27.5967 31.5 28.169 31.2629 28.591 30.841C29.0129 30.419 29.25 29.8467 29.25 29.25V9H30.375C30.6734 9 30.9595 8.88147 31.1705 8.6705C31.3815 8.45952 31.5 8.17337 31.5 7.875C31.5 7.57663 31.3815 7.29048 31.1705 7.0795C30.9595 6.86853 30.6734 6.75 30.375 6.75ZM27 29.25H9V9H27V29.25ZM11.25 3.375C11.25 3.07663 11.3685 2.79048 11.5795 2.5795C11.7905 2.36853 12.0766 2.25 12.375 2.25H23.625C23.9234 2.25 24.2095 2.36853 24.4205 2.5795C24.6315 2.79048 24.75 3.07663 24.75 3.375C24.75 3.67337 24.6315 3.95952 24.4205 4.1705C24.2095 4.38147 23.9234 4.5 23.625 4.5H12.375C12.0766 4.5 11.7905 4.38147 11.5795 4.1705C11.3685 3.95952 11.25 3.67337 11.25 3.375Z" fill="#155F2F"/>
+          </svg>
+        </div>
+        <div class="flex flex-col text-left">
+          <p class="text-sm">Jumlah Sampah</p>
+          <h1 class="mt-1 font-bold text-3xl">{{ totalSampah }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div v-if="!isNasabah" class="grid grid-cols-3 gap-5"> 
     <div class="py-3 px-2 rounded-xl bg-white h-24">
       <div class="flex flex-row gap-5">
         <div class="rounded-full bg-surface p-3">
@@ -41,7 +56,7 @@
     </div>
   </div>
   <div class="grid grid-cols-2 mt-5 gap-5"> 
-    <div class="p-6 rounded-xl bg-white h-80">
+    <div v-if="!isNasabah" class="p-6 rounded-xl bg-white h-80">
       <div class="flex justify-between items-center">
         <h3 class="text-xl font-medium">Data Nasabah Terakhir</h3>
         <router-link to="/Customer">
@@ -89,6 +104,52 @@
           </table>
       </div>
     </div>
+    <div v-if="isNasabah" class="p-6 rounded-xl bg-white h-80">
+      <div class="flex justify-between items-center">
+        <h3 class="text-xl font-medium">Data Transaksi Terakhir</h3>
+        <router-link to="/reportMe">
+          <button type="button" class="text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lihat Semua</button>
+        </router-link>
+      </div>
+      <div class="mt-5">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                      <th scope="col" class="px-3 py-3">
+                          Nomor
+                      </th>
+                      <th scope="col" class="px-3 py-3">
+                          <div class="flex items-center">
+                            Tanggal Transaksi
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                          </div>
+                      </th>
+                      <th scope="col" class="px-3 py-3">
+                          <div class="flex items-center">
+                            Nama Nasabah
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                          </div>
+                      </th>
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr v-for="(transaction, index ) in transactionsMe" :key="transaction.id" class="bg-white border-b text-gray-900 dark:bg-gray-800 dark:border-gray-700">
+                      <td scope="row" class="px-3 py-4 dark:text-white">
+                        {{ index+1 }}
+                      </td>
+                      <td class="px-3 py-4">
+                        {{ transaction.date }}
+                      </td>
+                      <td scope="row" class="px-3 py-4 dark:text-white">
+                        {{ transaction.nasabah.name }}
+                      </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+      
+    </div>
     <div class="p-6 rounded-xl bg-white h-80">
       <div class="flex justify-between items-center">
         <h3 class="text-xl font-medium">Data Sampah Terakhir</h3>
@@ -134,11 +195,11 @@
       </div>
     </div>
   </div>
-  <div class="mt-5"> 
+  <div v-if="!isNasabah" class="mt-5"> 
     <div class="p-6 rounded-xl bg-white h-fit">
       <div class="flex justify-between items-center">
         <h3 class="text-xl font-medium">Transaksi Terakhir Nasabah</h3>
-        <router-link to="/transaction">
+        <router-link to="/report">
           <button type="button" class="text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lihat Semua</button>
         </router-link>
       </div>
@@ -366,7 +427,9 @@ export default {
       trashes: [],
       admins: [],
       transactions: [],
+      transactionsMe: [],
       detailItems: [],
+      role: '',
       totalNasabah: 0,
       totalSampah: 0,
       totalAdmin: 0,
@@ -374,8 +437,25 @@ export default {
     }
   },
   methods: {
-    fetchCustomer() {
-      const token = localStorage.token
+    async fetchUserRole() {
+      try {
+        const token = localStorage.token;
+        const response = await axios.get('/me', {
+          headers: { "Authorization": `Bearer ${token}` }
+        });
+
+        console.log(response);
+        this.role = response.data.data.role; // Asumsikan response.data.role berisi peran pengguna
+        this.id = response.data.data.id; // Asumsikan response.data.role berisi peran pengguna
+        this.isLoading = false;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+  async mounted() {
+    await this.fetchUserRole();
+    const token = localStorage.token
       axios.get('user?role=nasabah', {headers: { "Authorization": `Bearer ${token}` }})
         .then(response => {
           console.log(response)
@@ -411,29 +491,38 @@ export default {
         .catch(error => {
           console.error(error);
         });
-    },
-    openModal(id, date) {
-      const token = localStorage.token;
-      const url = `/deposit/${id}?date=${date}`;
-
-      // Panggil API untuk mendapatkan detail transaksi
-      axios.get(url, { headers: { "Authorization": `Bearer ${token}` } })
+      // Buat objek query parameter berdasarkan input pencarian
+    const query = {
+      start: '2023-01-01', // Gunakan formattedStartDate sebagai pengganti startDate
+      end: '2023-06-30' // Gunakan formattedEndDate sebagai pengganti endDate
+    };
+      axios.get('transaction', {params: query, headers: { "Authorization": `Bearer ${token}` }})
         .then(response => {
-          console.log(response);
-          this.detailItems = response.data.data;
-
-          this.popupActive = true;
+          console.log(response)
+          this.transactionsMe = response.data.data;
+          this.totalPages = response.data.meta.last_page;
+          this.total = response.data.meta.total;
         })
         .catch(error => {
           console.error(error);
-        });
-    },
-    closeModal() {
-      this.popupActive = false;
-    },
+        });  
   },
-  mounted() {
-    this.fetchCustomer();
+  computed : {
+    isAdmin() {
+      return this.role === 'admin'; // Validasi apakah role adalah 'admin'
+    },
+    isSuperadmin() {
+      return this.role === 'superadmin'; // Validasi apakah role adalah 'superadmin'
+    },
+    isNasabah() {
+      return this.role === 'nasabah'; // Validasi apakah role adalah 'nasabah'
+    },
+    // getGridClass() {
+    //   return {
+    //     "grid grid-cols-3": this.role === "admin" || this.role === "superadmin",
+    //     "grid grid-cols-1": this.role === "nasabah",
+    //   };
+    // },
   }
 }
 
