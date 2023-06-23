@@ -124,6 +124,7 @@ export default {
       currentDate: '',
       popupActive: false,
       image_url: '',
+      id: '',
       cd: '',
       successMessage: '',
     }
@@ -158,6 +159,18 @@ export default {
         .catch(error => {
           console.error(error);
         });
+      axios.get('me', {headers: { "Authorization": `Bearer ${token}` }})
+        .then(response => {
+          console.log(response)
+          this.id = response.data.data.id;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    editItem(id) {
+      // Navigasi ke halaman edit dengan menggunakan ID item
+      this.$router.push({ name: 'Add Withdraw', params: { id: id } });
     },
     openModal(id) {
       const token = localStorage.token;

@@ -67,7 +67,7 @@
                           Transfer
                         </div>
                         <div v-if="withdraw.status === 'manual'" class="bg-blue-200 text-blue-400 text-xs text-center font-medium px-2 py-0.5 rounded-full w-16">
-                          Manual
+                          Cash
                         </div>
                       </td>
                       <td class="px-3 py-4">
