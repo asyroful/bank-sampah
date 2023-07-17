@@ -1,12 +1,12 @@
 <template>
   <div class="login flex flex-row-reverse">
     <div class="w-2/5 flex justify-end">
-      <img class="w-full h-screen" src="../assets/img/image3.png" alt="">
+      <img class="object-fill" src="../assets/img/image3.png" alt="">
     </div>
     <div class="">
       <div class="px-24">
         <div class="flex justify-center gap-2 py-4">
-          <img src="../assets/img/Logo.png" class="w-10" alt="">
+          <img src="../assets/img/Logo.png" class=".max-w-8 max-h-10" alt="">
           <h3 class="text-primary pt-4 font-bold">Bank Sampah Digital Ki Ageng Sengguruh</h3>
         </div>
         <div class="py-16">
@@ -16,7 +16,7 @@
             <div class="p-6 space-y-4">
                 <form class="space-y-4" @submit.prevent="login">
                     <div>
-                        <label for="email" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                        <label for="email" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
                         <input v-model="username" type="text" name="username" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
                     </div>
                     <div>
@@ -37,9 +37,6 @@
                     <div class="grid">
                       <button type="submit" class="w-full text-white bg-primary hover:bg-hover focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                     </div>
-                    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                        Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
-                    </p>
                 </form>
             </div>
           </div>

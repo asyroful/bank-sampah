@@ -1,11 +1,11 @@
 <template>
   <div class="bg-white rounded-xl p-6">
-    <h3 class="text-2xl font-medium text-left py-2">Tambah Admin</h3>
+    <h3 class="text-2xl font-medium text-left py-2">Edit Nasabah</h3>
     <div class="py-6">
       <form @submit.prevent="updateItem" class="space-y-4 md:space-y-6">
         <div>
-          <label for="name" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Admin</label>
-          <input v-model="editedItem.name" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis nama admin disini" required="">
+          <label for="name" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Nasabah</label>
+          <input v-model="editedItem.name" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tulis nama nasabah disini" required="">
         </div>
         <div>
           <label for="address" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>

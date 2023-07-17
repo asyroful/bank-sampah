@@ -75,7 +75,7 @@
               </svg>
             </div>
             <div class="pl-4 flex flex-col" v-show="showManagementData">
-              <router-link to="/admin" active-class="text-primary" class="inline-flex relative items-center my-1 py-3 px-4 w-full text-sm font-medium rounded-xl border-gray-200 hover:text-white focus:text-white hover:bg-primary focus:bg-primary transition duration-400 ease-in-out">
+              <router-link v-if="isSuperadmin" to="/admin" active-class="text-primary" class="inline-flex relative items-center my-1 py-3 px-4 w-full text-sm font-medium rounded-xl border-gray-200 hover:text-white focus:text-white hover:bg-primary focus:bg-primary transition duration-400 ease-in-out">
                 Data Admin
               </router-link>
               <router-link to="/customer" active-class="text-primary" class="inline-flex relative items-center my-1 py-3 px-4 w-full text-sm font-medium rounded-xl border-gray-200 hover:text-white focus:text-white hover:bg-primary focus:bg-primary transition duration-400 ease-in-out"> 

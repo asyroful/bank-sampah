@@ -90,7 +90,7 @@
                         <!--Footer-->
                         <div class="flex justify-center pt-2">
                             <button @click="close" class="px-4 bg-transparent p-3 rounded-lg text-red-600 hover:bg-gray-100 hover:text-red-400 mr-2">Cancel</button>
-                            <button @click="deleteItem(transaction.nasabah.id)" class="modal-close px-4 bg-red-600 p-3 rounded-lg text-white hover:bg-red-400">Hapus</button>
+                            <button @click="deleteItem(transaction.nasabah.id, transaction.date)" class="modal-close px-4 bg-red-600 p-3 rounded-lg text-white hover:bg-red-400">Hapus</button>
                           </div>
                       </Modal>
                   </tr>
@@ -248,10 +248,10 @@ export default {
           console.error(error);
         });
     },
-    deleteItem(id){
+    deleteItem(id, date){
       const token = localStorage.token
       // Menghapus item dengan ID tertentu dari API
-      axios.delete(`deposit/${id}`, {headers: { "Authorization": `Bearer ${token}` }})
+      axios.delete(`deposit/${id}?date=${date}`, {headers: { "Authorization": `Bearer ${token}` }})
         .then((response) => {
           console.log(response)
           this.toggleModal();

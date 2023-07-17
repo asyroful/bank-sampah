@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white rounded-xl p-6">
-    <h3 class="text-2xl font-medium text-left py-2">Tambah Admin</h3>
+    <h3 class="text-2xl font-medium text-left py-2">Edit Admin</h3>
     <div class="py-6">
       <form @submit.prevent="updateItem" class="space-y-4 md:space-y-6">
         <div>

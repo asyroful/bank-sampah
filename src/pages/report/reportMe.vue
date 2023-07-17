@@ -3,7 +3,7 @@
     <div class="bg-white rounded-xl mt-4 p-6">
       <div class="flex justify-between mb-3">
         <h3 class="text-2xl font-medium text-left py-2">Laporan Transaksi</h3>
-        <button type="button" class="text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-1 px-4 ">Unduh Laporan</button>
+        <button @click="download" type="submit" class="text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-1 px-4 ">Unduh Laporan</button>
       </div>
       <div class="w-1/2">
         <div class="flex">
@@ -86,52 +86,65 @@
                 <div class="fixed w-full h-full top-0 left-0 flex items-center justify-center">
                   <div class="modal-overlay absolute z-50 w-full h-full bg-gray-900 opacity-50"></div>
                   <div class="bg-white w-2/5 mx-auto rounded shadow-lg z-50 overflow-y-auto">
-                    <div class="modal-content py-4 text-left px-6">
-                      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
-                          <tr>
-                              <th scope="col" class="px-3 py-3">
-                                  Nomor
-                              </th>
-                              <th scope="col" class="px-3 py-3">
-                                  <div class="flex items-center">
-                                    Jenis Sampah
-                                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
-                                  </div>
-                              </th>
-                              <th scope="col" class="px-3 py-3">
-                                  <div class="flex items-center">
-                                    Berat
-                                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
-                                  </div>
-                              </th>
-                              <th scope="col" class="px-3 py-3">
-                                  <div class="flex items-center">
-                                    Harga
-                                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
-                                  </div>
-                              </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr v-for="(detail, index) in detailItems" :key="detail.name" class="bg-white border-b text-gray-900 dark:bg-gray-800 dark:border-gray-700">
-                              <td scope="row" class="px-3 py-2 dark:text-white">
-                                {{ index+1 }}
-                              </td>
-                              <td scope="row" class="px-3 py-2 dark:text-white">
-                                  {{ detail.garbage }}
-                              </td>
-                              <td class="px-3 py-2">
-                                  {{ detail.weight }}
-                              </td>
-                              <td class="px-3 py-2">
-                                  {{ detail.price }}
-                              </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <div class="modal-content py-16 text-left px-10">
+                      <div>
+                        <div class="flex justify-center mb-8">
+                          <h3 class="text-2xl">Detail Sampah</h3>
+                        </div>
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                          <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-3 py-3">
+                                    Nomor
+                                </th>
+                                <th scope="col" class="px-3 py-3">
+                                    <div class="flex items-center">
+                                      Jenis Sampah
+                                      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-3 py-3">
+                                    <div class="flex items-center">
+                                      Berat
+                                      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                    </div>
+                                </th>
+                                <th scope="col" class="px-3 py-3">
+                                    <div class="flex items-center">
+                                      Harga
+                                      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                    </div>
+                                </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr v-for="(detail, index) in detailItems.garbages" :key="detail.name" class="bg-white border-b text-gray-900 dark:bg-gray-800 dark:border-gray-700">
+                                <td scope="row" class="px-3 py-2 dark:text-white">
+                                  {{ index+1 }}
+                                </td>
+                                <td scope="row" class="px-3 py-2 dark:text-white">
+                                    {{ detail.garbage }}
+                                </td>
+                                <td class="px-3 py-2">
+                                    {{ detail.weight }}
+                                </td>
+                                <td class="px-3 py-2">
+                                    {{ detail.price }}
+                                </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="flex justify-between text-base text-black">
+                          <div>
+                            <p>Total :</p>
+                          </div>
+                          <div class="mr-24">
+                            <p>{{ detailItems.total }}</p>
+                          </div>
+                        </div>
+                      </div>
                       <div class="flex justify-center pt-2">
-                        <button @click="closeModal" class="px-4 bg-transparent p-3 rounded-lg text-red-600 hover:bg-gray-100 hover:text-red-400 mr-2">Close</button>
+                        <button @click="closeModal" class="px-4 text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 mr-2">Close</button>
                       </div>
                     </div>
                   </div>
@@ -224,6 +237,33 @@ export default {
           console.error(error);
         });
       },
+      download() {
+        console.log('1')
+        const token = localStorage.token;
+        axios.get('getReport', { headers: { "Authorization": `Bearer ${token}` }})
+          .then(response => {
+            console.log('2')
+            console.log(response)
+            let r = 'tanggal,nama,jenis sampah, jumlah, price, total\n'
+            response.data.forEach(e => {
+              const subTotal = e.weight*e.price
+              r += e.date + ','  + e.nasabah.name + ',' + e.garbage.name + ',' + e.weight + ',' + e.price + ',' + subTotal + '\n'
+            })
+            const url = window.URL.createObjectURL(new Blob([ new TextEncoder().encode(
+              r
+            ) ], { type: 'text/plain' }));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'Laporan.csv');
+            document.body.appendChild(link);
+            link.click();
+            console.log('3')
+          })
+          .catch(error => {
+            console.error(error);
+          });
+
+      },
     openModal(id, date) {
       const token = localStorage.token;
       const url = `/deposit/${id}?date=${date}`;
@@ -232,7 +272,7 @@ export default {
       axios.get(url, { headers: { "Authorization": `Bearer ${token}` } })
         .then(response => {
           console.log(response);
-          this.detailItems = response.data.data.garbages;
+          this.detailItems = response.data.data;
 
           this.popupActive = true;
         })

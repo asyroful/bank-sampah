@@ -3,7 +3,7 @@
     <div class="bg-white rounded-xl mt-4 p-6">
       <div class="flex justify-between mb-3">
         <h3 class="text-2xl font-medium text-left py-2">Penarikan Saldo Nasabah</h3>
-        <h3 class="text-2xl font-medium text-left py-2">Saldo : 12.000</h3>        
+        <h3 class="text-2xl font-medium text-left py-2">Saldo : {{ balance }}</h3>        
       </div>
       <div v-if="cd === currentDate" class="flex justify-between bg-red-100 p-3 rounded-lg mb-3">
         <p class="w-2/3 text-sm font-base text-left text-red-400 py-2">Pergantian data penarikan saldo nasabah dapat dilakukan sebelum tanggal {{ cd }} </p>
@@ -73,7 +73,7 @@
                           Transfer
                         </div>
                         <div v-if="withdraw.status === 'manual'" class="bg-blue-200 text-blue-400 text-xs text-center font-medium px-2 py-0.5 rounded-full w-16">
-                          Manual
+                          Cash
                         </div>
                       </td>
                       <td class="px-3 py-4">
@@ -93,10 +93,10 @@
             <transition name="modal-animation">
               <div class="fixed w-full h-full top-0 left-0 flex items-center justify-center">
                 <div class="modal-overlay absolute z-50 w-full h-full bg-gray-900 opacity-50"></div>
-                <div class="bg-white w-2/5 mx-auto rounded shadow-lg z-50 overflow-y-auto">
+                <div class="bg-white w-2/6 mx-auto rounded shadow-lg z-50 overflow-y-auto">
                   <div class="modal-content py-16 text-left px-10">
                     <div class="flex justify-center">
-                      <img class="w-full p-4" :src="image_url" alt="">
+                      <img class="max-h-96 p-4" :src="image_url" alt="">
                     </div>
                     <div class="flex justify-center pt-2">
                       <button @click="closeModal" class="px-4 text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-light rounded-lg text-sm py-2 mr-2">Close</button>
@@ -110,6 +110,9 @@
     </div>
     <div v-if="successMessage" class="fixed bottom-0 right-0 mb-4 mr-4 bg-green-500 text-white py-2 px-4 rounded">
         {{ successMessage }}
+    </div>
+    <div v-if="errorMessage" class="fixed bottom-0 right-0 mb-4 mr-4 bg-red-500 text-white py-2 px-4 rounded">
+        {{ errorMessage }}
     </div>
   </div>
 </template>
@@ -126,7 +129,9 @@ export default {
       image_url: '',
       id: '',
       cd: '',
+      balance: '',
       successMessage: '',
+      errorMessage: '',
     }
   },
   mounted() {
@@ -139,6 +144,18 @@ export default {
     convertedURL() {
       return this.image_url.replace('localhost:8000', 'localhost:8081');
     },
+  },
+  created() {
+    // Periksa apakah ada pesan sukses dalam LocalStorage
+    const successMessage = localStorage.getItem("successMessage");
+    if (successMessage) {
+      // Tampilkan notifikasi
+      this.successMessage = successMessage
+      setTimeout(() => {
+        this.successMessage = ''; // Sembunyikan notifikasi setelah beberapa detik
+      }, 4000);
+      localStorage.removeItem("successMessage");
+    }
   },
   methods: {
     fetchItems(){
@@ -164,6 +181,11 @@ export default {
           console.log(response)
           this.id = response.data.data.id;
         })
+      axios.get('getBalance', {headers: { "Authorization": `Bearer ${token}` }})
+        .then(response => {
+          console.log(response)
+          this.balance = response.data.balance;
+        })
         .catch(error => {
           console.error(error);
         });
@@ -181,7 +203,14 @@ export default {
           this.popupActive = true;
         })
         .catch(error => {
-          console.error(error);
+          if (error.response && error.response.status === 404) {
+            this.errorMessage = "Belum terdapat bukti laporan transaksi";
+          } else {
+            this.errorMessage = "Terjadi kesalahan saat memuat data foto transaksi";
+          }
+          setTimeout(() => {
+            this.errorMessage = ''; // Sembunyikan notifikasi setelah beberapa detik
+          }, 3000);
         });
     },
     closeModal() {

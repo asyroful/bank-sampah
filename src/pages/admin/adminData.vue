@@ -4,7 +4,7 @@
       <div class="flex justify-between mb-6">
         <h3 class="text-2xl font-medium text-left py-2">Data Admin</h3>
         <router-link to="/admin/add">
-          <button type="button" class="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><span class="pr-2">+</span>Tambah Admin Baru</button>
+          <button type="button" class="text-white bg-primary hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-light rounded-lg text-sm py-2 px-4 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800"><span class="pr-2">+</span>Tambah Admin Baru</button>
         </router-link>
       </div>
       <div>
